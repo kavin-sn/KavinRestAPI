@@ -12,19 +12,23 @@ import com.example.demo.Repository.StudentRepo;
 @Service
 public class StudentService {
 	@Autowired
-	StudentRepo repository;
+     public StudentRepo crepo;
 	
-	public String saveStudent(Student student)
+	public Student saveInfo(Student c)
 	{
-		repository.save(student);
-		return "Success";
+		return crepo.save(c);
 	}
-	public List<Student> getStudent()
+	public List<Student> getInfo()
 	{
-		return repository.findAll();
+		return crepo.findAll();
 	}
-	public Optional<Student> getStudentById(int id)
+	public Student updateInfo(Student iu)
 	{
-		return repository.findById(id);
+		return crepo.saveAndFlush(iu);
+		
+	}
+	public void deleteInfo(int id )
+	{
+		crepo.deleteById(id);
 	}
 }

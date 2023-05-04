@@ -1,5 +1,0 @@
-package customerresp;
-
-public interface resp {
-
-}
